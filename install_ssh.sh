@@ -1,10 +1,8 @@
 #!/bin/bash
 
 # VAR
-# alternative rootusername
-user=alterroot
-# ssh port
-port=22
+read -p "Enter username for alternative root account: " user
+read -p "Enter new ssh port: " port
 
 # update and install software
 apt-get -y update
