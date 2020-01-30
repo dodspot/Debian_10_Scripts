@@ -11,3 +11,7 @@
 - cd /root/
 - git clone https://github.com/dodspot/Debian_10_Scripts/
 - chmod -R 110 /root/Debian_10_Scripts/
+- echo "*/10 *  * * *   root    /root/Debian_10_Scripts/update_git.ssh 
+
+>> /root/Debian_10_Scripts/updatelog.log" >> /etc/crontab
+
