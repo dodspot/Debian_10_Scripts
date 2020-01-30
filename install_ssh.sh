@@ -18,7 +18,7 @@ adduser --disabled-password --gecos "" ${user}
 usermod -aG sudo ${user}
 
 # copy ssh-key for new user
-cp -r ~/.ssh /home/${user}
+cp -r /root/.ssh /home/${user}
 chown -R ${user}:${user} /home/${user}/.ssh
 
 # dchange sshd_config
