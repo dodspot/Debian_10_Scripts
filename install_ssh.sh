@@ -21,10 +21,10 @@ usermod -aG sudo ${user}
 cp -r /root/.ssh /home/${user}
 chown -R ${user}:${user} /home/${user}/.ssh
 
-# dchange sshd_config
-sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
-sed -i 's/#Port 22/Port ${port}/' /etc/ssh/sshd_config
-sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
+# change sshd_config
+sed -i "s/PermitRootLogin yes/PermitRootLogin no/" /etc/ssh/sshd_config
+sed -i "s/#Port 22/Port ${port}/" /etc/ssh/sshd_config
+sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
 
 # clear password for sudo
 echo "${user} ALL=(ALL) NOPASSWD: ALL" | EDITOR='tee -a' visudo
