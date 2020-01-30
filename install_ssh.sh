@@ -1,41 +1,32 @@
-# AKTUALIESIEREN
+#!/bin/bash
 
-apt-get updates
-apt-get upgrades
+# VAR
+# alternative rootusername
+user=alterroot
+# ssh port
+port=22
 
-# USER ANLEGEN
+# update and install software
+apt-get -y update
+apt-get -y upgrade
+apt-get -y install unattended-upgrades
+apt-get -y install ufw
 
-adduser --disabled-password --gecos "" ndodson
-usermod -aG sudo ndodson
+# add alternative rootuser
+adduser --disabled-password --gecos "" ${user}
+usermod -aG sudo ${user}
 
-# FIREWALL EINRICHTEN
+# copy ssh-key for new user
+cp -r ~/.ssh /home/${user}
+chown -R ${user}:${user} /home/${user}/.ssh
 
-apt-get install ufw
-ufw allow OpenSSH
-echo y | ufw enable
+# dchange sshd_config
+sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
+sed -i 's/#Port 22/Port ${port}/' /etc/ssh/sshd_config
+sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 
-# SSH EINRICHTEN
+# clear password for sudo
+echo "${user} ALL=(ALL) NOPASSWD: ALL" | EDITOR='tee -a' visudo
 
-cp -r ~/.ssh /home/ndodson
-chown -R ndodson:ndodson /home/ndodson/.ssh
-
-# DOCKER INSTALLIEREN
-apt-get -y install apt-transport-https 
-apt-get -y install ca-certificates 
-apt-get -y install curl 
-apt-get -y install gnupg2 
-apt-get -y install software-properties-common
-
-# GPG-SCHLÜSSEL HINZUFÜGEN
-
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-
-# DOCKER REPOSITORY HINZUFÜGEN
-
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
-apt-cache policy docker-ce
-
-# DOCKER CE INSTALLIEREN
-
-apt install docker-ce
-usermod -aG docker ndodson
+# reboot
+init 6
