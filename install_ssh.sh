@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# requirements:
+# root user got an installed ssh-key
+
 # VAR
 read -p "Enter username for alternative root account: " user
 read -p "Enter new ssh port: " port
