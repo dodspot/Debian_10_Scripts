@@ -1,9 +1,12 @@
 # Debian_10_Scripts
 
-requirements:
+# requirements
 - Debian 10
 - root login
 
-
+# Init setup
+apt-get -y update
+apt-get -y upgrade
+apt-get -y install git
 git clone https://github.com/dodspot/Debian_10_Scripts/
 chmod -R 770 Debian_10_Scripts/
