@@ -28,5 +28,9 @@ sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_
 # clear password for sudo
 echo "${user} ALL=(ALL) NOPASSWD: ALL" | EDITOR='tee -a' visudo
 
+# configure Firewall
+ufw allow ${port}/tcp
+echo y | ufw enable
+
 # reboot
 init 6
