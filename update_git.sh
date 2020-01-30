@@ -1,7 +1,8 @@
 #!/bin/bash
 
 check=$(git status /root/Debian_10_Scripts/ | grep -a "Your branch is up to date with")
-if test -n "$check" then
+if test -n "$check" 
+then
 
 # save directory and change
 directory=$(pwd)
