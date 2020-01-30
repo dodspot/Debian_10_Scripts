@@ -3,6 +3,9 @@
 # grep up to date string
 check=$(git status /root/Debian_10_Scripts/ | grep -a "Your branch is up to date with")
 
+# check log and cut first line if neccessary
+tail -n 99 >update.log
+
 # if no string was found do
 if test -z "$check" 
 then
@@ -22,9 +25,11 @@ cd $directory
 chmod -R 110 /root/Debian_10_Scripts/
 
 #report status
+echo "$(date) UPDATED" >> update.log
 echo "Branch has been updated."
 echo $check
 else
+echo "$(date) SKIPPED" >> update.log
 echo "No update available."
 echo $check
 fi
