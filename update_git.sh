@@ -1,39 +1,29 @@
 #!/bin/bash
 
-echo 1
+# grep up to date string
 check=$(git status /root/Debian_10_Scripts/ | grep -a "Your branch is up to date with")
 
-echo 2
+# if no string was found do
 if test -n "$check" 
-
-echo 3
 then
 
-# save directory and change
-echo 4
+# save working directory and change to git directory
 directory=$(pwd)
 cd /root/Debian_10_Scripts/
 
-# do git things
-echo 5
-git stash 
-echo 6
-git pull 
+# stash and pull quiet
+git stash -q
+git pull -q
 
-# go back to directory
-echo 7
+# go back to working directory
 cd $directory
 
 # modify file permissions
-echo 8
 chmod -R 110 /root/Debian_10_Scripts/
 
 #report status
-echo 9
-check=$(git status /root/Debian_10_Scripts/ | grep -a "Your branch is up to date with")
-
-echo 10
-fi
-
-echo 11
+echo "Branch has been updated."
 echo $check
+else
+echo $check
+fi
