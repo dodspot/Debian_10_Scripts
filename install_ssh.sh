@@ -32,3 +32,6 @@ echo "${user} ALL=(ALL) NOPASSWD: ALL" | EDITOR='tee -a' visudo
 # configure Firewall
 ufw allow ${port}/tcp
 echo y | ufw enable
+
+# reboot
+init 6
