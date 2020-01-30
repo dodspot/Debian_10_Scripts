@@ -4,7 +4,7 @@
 check=$(git status /root/Debian_10_Scripts/ | grep -a "Your branch is up to date with")
 
 # if no string was found do
-if test -n "$check" 
+if test -z "$check" 
 then
 
 # save working directory and change to git directory
