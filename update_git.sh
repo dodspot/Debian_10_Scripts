@@ -25,5 +25,6 @@ chmod -R 110 /root/Debian_10_Scripts/
 echo "Branch has been updated."
 echo $check
 else
+echo "No update available."
 echo $check
 fi
