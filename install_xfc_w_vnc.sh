@@ -11,6 +11,11 @@ apt-get -y install xfce4-goodies
 # install vnc viewer
 apt-get -y install tightvncserver
 
+# install required fonts
+apt-get -y install xfonts-base
+apt-get -y install xfonts-100dpi
+apt-get -y install xfonts-75dpi
+
 # initiate vnc server
 echo "Password must between six and eight characters"
 vncserver
