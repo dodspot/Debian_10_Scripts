@@ -5,7 +5,7 @@ directory=$(pwd)
 cd /root/Debian_10_Scripts/
 
 # check for updates and cut log if 100
-git pull > nul
+git pull
 tail -n 99 /root/Debian_10_Scripts/update.log > update.log
 
 # grep up to date string
