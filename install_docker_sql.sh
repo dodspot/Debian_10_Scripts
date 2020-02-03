@@ -1,9 +1,14 @@
 #!/bin/bash
 
-# prequal update
-apt-get -y -q update
-apt-get -y -q upgrade
+# UPDATE
+	apt-get -qq update
+	apt-get -qq upgrade
 
-# install docker image
+# INSTALL
 
-docker pull mcr.microsoft.com/mssql/server
+# VARS
+
+# SETUP
+
+  # install docker image
+	docker pull mcr.microsoft.com/mssql/server

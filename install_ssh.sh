@@ -1,37 +1,38 @@
 #!/bin/bash
 
-# requirements:
-# root user got an installed ssh-key
+# UPDATE
+	apt-get -qq update
+	apt-get -qq upgrade
 
-# VAR
-read -p "Enter username for alternative root account: " user
-read -p "Enter new ssh port: " port
+# INSTALL
+	apt-get -y install unattended-upgrades
+	apt-get -y install ufw
 
-# update and install software
-apt-get -y update
-apt-get -y upgrade
-apt-get -y install unattended-upgrades
-apt-get -y install ufw
+# VARS
+	read -p "Enter username for alternative root account: " user
+	read -p "Enter new ssh port: " port
 
-# add alternative rootuser
-adduser --disabled-password --gecos "" ${user}
-usermod -aG sudo ${user}
+# SETUP
 
-# copy ssh-key for new user
-cp -r /root/.ssh /home/${user}
-chown -R ${user}:${user} /home/${user}/.ssh
+  # add alternative rootuser
+	adduser --disabled-password --gecos "" ${user}
+	usermod -aG sudo ${user}
 
-# change sshd_config
-sed -i "s/PermitRootLogin yes/PermitRootLogin no/" /etc/ssh/sshd_config
-sed -i "s/#Port 22/Port ${port}/" /etc/ssh/sshd_config
-sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
+  # copy ssh-key for new user
+	cp -r /root/.ssh /home/${user}
+	chown -R ${user}:${user} /home/${user}/.ssh
 
-# clear password for sudo
-echo "${user} ALL=(ALL) NOPASSWD: ALL" | EDITOR='tee -a' visudo
+  # change sshd_config
+	sed -i "s/PermitRootLogin yes/PermitRootLogin no/" /etc/ssh/sshd_config
+	sed -i "s/#Port 22/Port ${port}/" /etc/ssh/sshd_config
+	sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
 
-# configure Firewall
-ufw allow ${port}/tcp
-echo y | ufw enable
+  # clear password for sudo
+	echo "${user} ALL=(ALL) NOPASSWD: ALL" | EDITOR='tee -a' visudo
 
-# reboot
-init 6
+  # configure Firewall
+	ufw allow ${port}/tcp
+	echo y | ufw enable
+
+  # reboot
+	init 6
