@@ -8,6 +8,7 @@
 - apt-get -qq update
 - apt-get -qq upgrade
 - apt-get -qq install git
+- apt-get -qq install dialog
 - mkdir /git
 - cd /git/
 - git clone https://github.com/dodspot/Debian_10_Scripts/
