@@ -126,8 +126,8 @@ dialog --ascii-lines --mixedgauge "" 0 0 64 \
 "Add Docker-repository to sourcelist"  "pending" \
 "Update from Docker"                   "pending" \
 "Install Docker"                       "pending"
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - >nul
+curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose >nul
 	
 # MAKE DOCKER EXECUTABLE ######################################################
 dialog --ascii-lines --mixedgauge "" 0 0 72 \
@@ -193,4 +193,4 @@ dialog --ascii-lines --mixedgauge "" 0 0 96 \
 apt-get -qq install docker-ce
 
 # FINISH ######################################################################
-dialog --msgbox "Docker installation completed" 0 0
+dialog --ascii-lines --msgbox "Docker installation completed" 0 0
