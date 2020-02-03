@@ -194,3 +194,5 @@ apt-get -qq install docker-ce
 
 # FINISH ######################################################################
 dialog --ascii-lines --msgbox "Docker installation completed" 0 0
+clear
+bash /git/Debian_10_Scripts/03_docker/index.sh
