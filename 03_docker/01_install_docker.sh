@@ -1,35 +1,196 @@
 #!/bin/bash
 
-# UPDATE
-	apt-get -qq update
-	apt-get -qq upgrade
+# UPDATE ######################################################################
+dialog --ascii-lines --mixedgauge "" 0 0 8 \
+"Updates"                              "in progress" \
+"Upgrade"                              "pending" \
+"Install apt-transport-https"          "pending" \
+"Install ca-certificates"              "pending" \
+"Install curl"                         "pending" \
+"Install gnupg2"                       "pending" \
+"Install software-properties-common"   "pending" \
+"Add librarys"                         "pending" \
+"Make Docker executable"               "pending" \
+"Add Docker-repository to sourcelist"  "pending" \
+"Update from Docker"                   "pending" \
+"Install Docker"                       "pending"
+apt-get -qq update
 
-# INSTALL
-	apt-get -qq install apt-transport-https
-	apt-get -qq install ca-certificates 
-	apt-get -qq install curl 
-	apt-get -qq install gnupg2 
-	apt-get -qq install software-properties-common
+# UPGRADE #####################################################################
+dialog --ascii-lines --mixedgauge "" 0 0 16 \
+"Updates"                              "completed" \
+"Upgrade"                              "in progress" \
+"Install apt-transport-https"          "pending" \
+"Install ca-certificates"              "pending" \
+"Install curl"                         "pending" \
+"Install gnupg2"                       "pending" \
+"Install software-properties-common"   "pending" \
+"Add librarys"                         "pending" \
+"Make Docker executable"               "pending" \
+"Add Docker-repository to sourcelist"  "pending" \
+"Update from Docker"                   "pending" \
+"Install Docker"                       "pending"
+apt-get -qq upgrade
 
-# VARS
+# INSTALL APT-TRANSPORT-HTTPS #################################################
+dialog --ascii-lines --mixedgauge "" 0 0 24 \
+"Updates"                              "completed" \
+"Upgrade"                              "completed" \
+"Install apt-transport-https"          "in progress" \
+"Install ca-certificates"              "pending" \
+"Install curl"                         "pending" \
+"Install gnupg2"                       "pending" \
+"Install software-properties-common"   "pending" \
+"Add librarys"                         "pending" \
+"Make Docker executable"               "pending" \
+"Add Docker-repository to sourcelist"  "pending" \
+"Update from Docker"                   "pending" \
+"Install Docker"                       "pending"
+apt-get -qq install apt-transport-https
 
-# SETUP
+# INSTALL CA-CERTIFICATES #####################################################
+dialog --ascii-lines --mixedgauge "" 0 0 32 \
+"Updates"                              "completed" \
+"Upgrade"                              "completed" \
+"Install apt-transport-https"          "completed" \
+"Install ca-certificates"              "in progress" \
+"Install curl"                         "pending" \
+"Install gnupg2"                       "pending" \
+"Install software-properties-common"   "pending" \
+"Add librarys"                         "pending" \
+"Make Docker executable"               "pending" \
+"Add Docker-repository to sourcelist"  "pending" \
+"Update from Docker"                   "pending" \
+"Install Docker"                       "pending"
+apt-get -qq install ca-certificates 
+
+# INSTALL CURL ################################################################
+dialog --ascii-lines --mixedgauge "" 0 0 40 \
+"Updates"                              "completed" \
+"Upgrade"                              "completed" \
+"Install apt-transport-https"          "completed" \
+"Install ca-certificates"              "completed" \
+"Install curl"                         "in progress" \
+"Install gnupg2"                       "pending" \
+"Install software-properties-common"   "pending" \
+"Add librarys"                         "pending" \
+"Make Docker executable"               "pending" \
+"Add Docker-repository to sourcelist"  "pending" \
+"Update from Docker"                   "pending" \
+"Install Docker"                       "pending"
+apt-get -qq install curl 
+
+# INSTALL GNUPG2 ##############################################################
+dialog --ascii-lines --mixedgauge "" 0 0 48 \
+"Updates"                              "completed" \
+"Upgrade"                              "completed" \
+"Install apt-transport-https"          "completed" \
+"Install ca-certificates"              "completed" \
+"Install curl"                         "completed" \
+"Install gnupg2"                       "in progress" \
+"Install software-properties-common"   "pending" \
+"Add librarys"                         "pending" \
+"Make Docker executable"               "pending" \
+"Add Docker-repository to sourcelist"  "pending" \
+"Update from Docker"                   "pending" \
+"Install Docker"                       "pending"
+apt-get -qq install gnupg2 
+
+# INSTALL SOFTWARE-PROPERTIES-COMMON ##########################################
+dialog --ascii-lines --mixedgauge "" 0 0 56 \
+"Updates"                              "completed" \
+"Upgrade"                              "completed" \
+"Install apt-transport-https"          "completed" \
+"Install ca-certificates"              "completed" \
+"Install curl"                         "completed" \
+"Install gnupg2"                       "completed" \
+"Install software-properties-common"   "in progress" \
+"Add librarys"                         "pending" \
+"Make Docker executable"               "pending" \
+"Add Docker-repository to sourcelist"  "pending" \
+"Update from Docker"                   "pending" \
+"Install Docker"                       "pending"
+apt-get -qq install software-properties-common
 	
-  # add librarys
-	curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-	curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+# ADD LIBRARYS ################################################################
+dialog --ascii-lines --mixedgauge "" 0 0 64 \
+"Updates"                              "completed" \
+"Upgrade"                              "completed" \
+"Install apt-transport-https"          "completed" \
+"Install ca-certificates"              "completed" \
+"Install curl"                         "completed" \
+"Install gnupg2"                       "completed" \
+"Install software-properties-common"   "completed" \
+"Add librarys"                         "in progress" \
+"Make Docker executable"               "pending" \
+"Add Docker-repository to sourcelist"  "pending" \
+"Update from Docker"                   "pending" \
+"Install Docker"                       "pending"
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 	
-  # make docker-compase executable
-	chmod +x /usr/local/bin/docker-compose
+# MAKE DOCKER EXECUTABLE ######################################################
+dialog --ascii-lines --mixedgauge "" 0 0 72 \
+"Updates"                              "completed" \
+"Upgrade"                              "completed" \
+"Install apt-transport-https"          "completed" \
+"Install ca-certificates"              "completed" \
+"Install curl"                         "completed" \
+"Install gnupg2"                       "completed" \
+"Install software-properties-common"   "completed" \
+"Add librarys"                         "completed" \
+"Make Docker executable"               "in progress" \
+"Add Docker-repository to sourcelist"  "pending" \
+"Update from Docker"                   "pending" \
+"Install Docker"                       "pending"
+chmod +x /usr/local/bin/docker-compose
 
-  # add Docker to aptitude sourcelist
-	add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+# ADD DOCKER-REPOSITORY TO SOURCE LIST ########################################
+dialog --ascii-lines --mixedgauge "" 0 0 80 \
+"Updates"                              "completed" \
+"Upgrade"                              "completed" \
+"Install ca-certificates"              "completed" \
+"Install curl"                         "completed" \
+"Install gnupg2"                       "completed" \
+"Install software-properties-common"   "completed" \
+"Add librarys"                         "completed" \
+"Make Docker executable"               "completed" \
+"Add Docker-repository to sourcelist"  "in progress" \
+"Update from Docker"                   "pending" \
+"Install Docker"                       "pending"
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 
-  # update with new sourcelist
-	apt-get -qq update
+# UPDATE FROM DOCKER ##########################################################
+dialog --ascii-lines --mixedgauge "" 0 0 88 \
+"Updates"                              "completed" \
+"Upgrade"                              "completed" \
+"Install apt-transport-https"          "completed" \
+"Install ca-certificates"              "completed" \
+"Install curl"                         "completed" \
+"Install gnupg2"                       "completed" \
+"Install software-properties-common"   "completed" \
+"Add librarys"                         "completed" \
+"Make Docker executable"               "completed" \
+"Add Docker-repository to sourcelist"  "completed" \
+"Update from Docker"                   "in progress" \
+"Install Docker"                       "pending"
+apt-get -qq update
 
-  # install Docker
-	apt-get -qq install docker-ce
+# INSTALL DOCKER ##############################################################
+dialog --ascii-lines --mixedgauge "" 0 0 96 \
+"Updates"                              "completed" \
+"Upgrade"                              "completed" \
+"Install apt-transport-https"          "completed" \
+"Install ca-certificates"              "completed" \
+"Install curl"                         "completed" \
+"Install gnupg2"                       "completed" \
+"Install software-properties-common"   "completed" \
+"Add librarys"                         "completed" \
+"Make Docker executable"               "completed" \
+"Add Docker-repository to sourcelist"  "completed" \
+"Update from Docker"                   "completed" \
+"Install Docker"                       "in progress"
+apt-get -qq install docker-ce
 
- # Check if Docker is running
-	systemctl status docker | head -n 3
+# FINISH ######################################################################
+dialog --msgbox "Docker installation completed" 0 0
