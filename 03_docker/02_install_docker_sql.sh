@@ -1,14 +1,15 @@
 #!/bin/bash
 
-# UPDATE
-	apt-get -qq update
-	apt-get -qq upgrade
+# Update and upgrade
+clear
+apt-get -y update
+apt-get -y upgrade
 
-# INSTALL
+# install docker image
+clear
+docker pull mcr.microsoft.com/mssql/server
 
-# VARS
-
-# SETUP
-
-  # install docker image
-	docker pull mcr.microsoft.com/mssql/server
+# Finish
+clear
+dialog --ascii-lines --msgbox "MSSQL is installed on Docker" 0 0
+bash /git/Debian_10_Scripts/03_docker/index.sh
