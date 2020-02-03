@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # prequal update
-apt-get -y -q update
-apt-get -y -q upgrade
+apt-get -qq update
+apt-get -qq upgrade
 
 # install apps
-apt-get -y -q install apt-transport-https
-apt-get -y -q install ca-certificates 
-apt-get -y -q install curl 
-apt-get -y -q install gnupg2 
-apt-get -y -q install software-properties-common
+apt-get -qq install apt-transport-https
+apt-get -qq install ca-certificates 
+apt-get -qq install curl 
+apt-get -qq install gnupg2 
+apt-get -qq install software-properties-common
 
 # add offizial Docker GPG
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
@@ -18,7 +18,7 @@ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 
 # update with new sourcelist
-apt-get -y update
+apt-get -qq update
 
 # check if Docker repository is used
 apt-cache policy docker-ce
