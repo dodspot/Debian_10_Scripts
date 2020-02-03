@@ -8,14 +8,15 @@ choose=`dialog --ascii-lines --backtitle "Dodspot Script Database - Docker" --me
 3>&1 1>&2 2>&3`
 
 case "$choose" in
-        1) bash /git/Debain_10_Scripts/03_docker/01_install_docker.sh
+        1) bash /git/Debian_10_Scripts/03_docker/01_install_docker.sh
            ;;
-        2) bash /git/Debain_10_Scripts/03_docker/02_install_docker_sql.sh
+        2) bash /git/Debian_10_Scripts/03_docker/02_install_docker_sql.sh
            ;;
-        3) bash /git/Debain_10_Scripts/03_docker/03_install_docker_sql_instance.sh
+        3) bash /git/Debian_10_Scripts/03_docker/03_install_docker_sql_instance.sh
            ;;
-	4) bash /git/Debain_10_Scripts/03_docker/04_install_docker_wordpress.sh
+	4) bash /git/Debian_10_Scripts/03_docker/04_install_docker_wordpress.sh
 	   ;;
 	*) echo "$choose"
 	   clear
+	   exit
 	   ;;
