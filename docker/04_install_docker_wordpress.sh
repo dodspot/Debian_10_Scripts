@@ -41,6 +41,7 @@
 
   # open Firewall port
 	ufw allow ${port}
+	echo y | ufw enable
 
   # goto home
 	cd ~

@@ -5,10 +5,11 @@
 - root login
 
 # Init setup
-- apt-get -y update
-- apt-get -y upgrade
-- apt-get -y install git
+- apt-get -qq update
+- apt-get -qq upgrade
+- apt-get -qq install git
+- mkdir /git
 - cd /git/
 - git clone https://github.com/dodspot/Debian_10_Scripts/
 - chmod -R 110 /git/Debian_10_Scripts/
-- echo "*/10 * * * * root /git/Debian_10_Scripts/update_git.sh" >> /etc/crontab
+- echo "*/10 * * * * root /git/Debian_10_Scripts/02_update_git.sh" >> /etc/crontab

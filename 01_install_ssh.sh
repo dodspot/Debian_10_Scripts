@@ -5,8 +5,8 @@
 	apt-get -qq upgrade
 
 # INSTALL
-	apt-get -y install unattended-upgrades
-	apt-get -y install ufw
+	apt-get -qq install unattended-upgrades
+	apt-get -qq install ufw
 
 # VARS
 	read -p "Enter username for alternative root account: " user
