@@ -16,6 +16,6 @@ case "$choose" in
            ;;
 	4) bash /git/Debain_10_Scripts/03_docker/04_install_docker_wordpress.sh
 	   ;;
-
-echo "$choose"
-clear
+	*) echo "$choose"
+	   clear
+	   ;;
