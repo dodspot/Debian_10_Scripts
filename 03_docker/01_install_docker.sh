@@ -158,7 +158,7 @@ dialog --ascii-lines --mixedgauge "" 0 0 80 \
 "Add Docker-repository to sourcelist"  "in progress" \
 "Update from Docker"                   "pending" \
 "Install Docker"                       "pending"
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" > /dev/null 2>&1
 
 # UPDATE FROM DOCKER ##########################################################
 dialog --ascii-lines --mixedgauge "" 0 0 88 \
