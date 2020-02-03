@@ -27,9 +27,11 @@ vncserver -kill :1
 mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
 
 # create own konfig file
-echo '#!/bin/bash' > ~/.vnc/xstartup
-echo 'xrdb $HOME/.Xresources' >>~/.vnc/xstartup
-echo 'startxfce4 &' >>~/.vnc/xstartup
+echo '#!/bin/bash' 			> ~/.vnc/xstartup
+echo 'unset SESSION_MANAGER 		>>~/.vnc/xstartup
+echo 'unset DBUS_SESSION_BUS_ADDRESS 	>>~/.vnc/xstartup
+echo 'xrdb $HOME/.Xresources' 		>>~/.vnc/xstartup
+echo 'startxfce4 &' 			>>~/.vnc/xstartup
 
 # chmod own config file
 chmod +x ~/.vnc/xstartup
