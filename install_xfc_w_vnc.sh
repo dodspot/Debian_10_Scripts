@@ -2,19 +2,19 @@
 
 # update and upgrade
 apt-get -y update
-apt-get -y upgrade
+apt-get -y -q upgrade
 
 # install xfc4 desktop environment
-apt-get -y install xfce4
-apt-get -y install xfce4-goodies
+apt-get -y -q install xfce4
+apt-get -y -q install xfce4-goodies
 
 # install vnc viewer
-apt-get -y install tightvncserver
+apt-get -y -q install tightvncserver
 
 # install required fonts
-apt-get -y install xfonts-base
-apt-get -y install xfonts-100dpi
-apt-get -y install xfonts-75dpi
+apt-get -y -q install xfonts-base
+apt-get -y -q install xfonts-100dpi
+apt-get -y -q install xfonts-75dpi
 
 # initiate vnc server
 echo "Password must between six and eight characters"
