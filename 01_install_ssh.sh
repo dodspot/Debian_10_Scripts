@@ -7,6 +7,9 @@
 # INSTALL
 	apt-get -qq install unattended-upgrades
 	apt-get -qq install ufw
+	apt-get -qq install apt-listchanges 
+	apt-get -qq install vim 
+	apt-get -qq install openssh-server
 
 # VARS
 	read -p "Enter username for alternative root account: " user
