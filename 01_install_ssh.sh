@@ -23,6 +23,7 @@
 	usermod -aG sudo ${user}
 
   # copy ssh-key for new user
+  	ssh-copy-id -i .ssh/key_rsa.pub
 	cp -r /root/.ssh /home/${user}
 	chown -R ${user}:${user} /home/${user}/.ssh
 
