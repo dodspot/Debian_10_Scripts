@@ -15,15 +15,8 @@
 # VARS
 	read -p "Enter username for alternative root account: " user
 	read -p "Enter new ssh port: " port
-	read -p "Enter public key from putty: " key
 	
 # SETUP
-
-  # install key for root
-  	cd ~
-	mkdir .ssh
-	${key} > authorized_keys
-	chmod 0700 ~/.ssh -R
 
   # add alternative rootuser
 	adduser --disabled-password --gecos "" ${user}
