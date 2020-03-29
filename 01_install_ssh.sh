@@ -24,6 +24,8 @@
 	
   #create ssh-key
 	ssh-keygen -f ~/createdkey -t rsa -b 4096 -N ""
+	clear
+	cat ~/createdkey
 	read -p "copy your key to putty and press enter: " nirvana
 	ssh-copy-id -i ~/.ssh/createdkey
 	
